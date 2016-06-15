@@ -1,0 +1,17 @@
+{
+  "name": "adios",
+  "version": "1.0.0",
+  "description": "Exercise to build an MVC/CRUD in Express.js",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongoose": "^4.5.0",
+    "nodemon": "^1.9.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
