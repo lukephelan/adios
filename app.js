@@ -31,7 +31,7 @@ app.get('/about', function (request, response) {
 });
 
 app.get('/new', function (request, response) {
-  response.render('new', {title: 'New', message: 'Put new form here!'});
+  response.render('new', {title: 'New', message: 'Add New Customer'});
 });
 
 app.get('/edit', function (request, response) {
@@ -78,7 +78,7 @@ app.put('/edit/:id', function(req,res){
     address : address,
     suburb : suburb,
     postcode : postcode,
-    comment : [{comment, date}],
+    comments : [{body : comment, date : date}],
     active : active
   });
 });
