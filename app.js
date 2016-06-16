@@ -14,6 +14,8 @@ db.once('open', function() {
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
+app.use(bodyParser.json())
+
 var Customer = require('./models/customer');
 
 app.get('/', function (request, response) {
@@ -52,7 +54,8 @@ app.post('/new', function(req,res){
     address : address,
     suburb : suburb,
     postcode : postcode,
-    comment : [{comment, date}],
+    comments : [{body : comment, date : date}],
     active : active
   });
+  res.redirect("/");
 });
