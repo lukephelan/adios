@@ -34,9 +34,12 @@ app.get('/new', function (request, response) {
   response.render('new', {title: 'New', message: 'Add New Customer'});
 });
 
-app.get('/edit', function (request, response) {
-  response.render('edit', {title: 'Edit', message: 'Put edit form here!'});
+app.get('/edit/:id', function (request, response) {
+  Customer.findById(request.params.id, function(err, customers){
+    response.render('edit', {customers: customers});
+  });
 });
+
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
@@ -73,7 +76,7 @@ app.put('/edit/:id', function(req,res){
   var date = req.body.date;
   var active = req.body.active;
 
-  mongoose.model('Customer').findbyedit({
+  mongoose.model('Customer').findbyid({
     name : name,
     address : address,
     suburb : suburb,
@@ -81,4 +84,5 @@ app.put('/edit/:id', function(req,res){
     comments : [{body : comment, date : date}],
     active : active
   });
+  res.redirect("/");
 });
