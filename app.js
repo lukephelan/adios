@@ -8,4 +8,16 @@ db.once('open', function() {
   // we're connected!
 });
 
+app.get('/', function (req, res) {
+	res.render('index' });
+})
+
+app.get('/about', function (req, res) {
+	res.render('about' });
+})
+
+app.get('/new', function (req, res) {
+	res.render('new' });
+})
+
 console.log('Brad was here!');
