@@ -2,6 +2,21 @@
   font-family: Arial;
 }
 
+.btn {
+	font-size: 20px;
+	width: 60px;
+	margin-top: 0px;
+  margin-right: 40px;
+  background: blue;
+  color: white;
+  border-radius: 15px;
+  text-shadow: 1px 1px #800080;
+}
+
+.navbar {
+	font-size: 24px;
+}
+
 ul {
   width: 100%;
   background-color: #b3e6ff;
