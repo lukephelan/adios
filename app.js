@@ -8,16 +8,20 @@ db.once('open', function() {
   // we're connected!
 });
 
+app.set('view engine', 'pug');
+
 app.get('/', function (req, res) {
-	res.render('index' });
+	res.render('index');
 })
 
 app.get('/about', function (req, res) {
-	res.render('about' });
+	res.render('about');
 })
 
 app.get('/new', function (req, res) {
-	res.render('new' });
+	res.render('new');
 })
 
-console.log('Brad was here!');
+app.listen(3000, function() {
+	console.log('Example app listening on port 3000');
+})
