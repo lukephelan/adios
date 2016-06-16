@@ -1,3 +1,5 @@
+var bodyParser = require('body-parser')
+
 var express = require('express');
 var app = express();
 app.set('view engine', 'pug');
@@ -9,6 +11,8 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   // we're connected!
 });
+
+app.use(bodyParser.urlencoded({ extended: false }))
 
 var Customer = require('./models/customer');
 
@@ -30,4 +34,25 @@ app.get('/new', function (request, response) {
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
+});
+
+app.post('/new', function(req,res){
+  console.log('WE ARE HERE!')
+  var name = req.body.name;
+  console.log(name);
+  var address = req.body.address;
+  var suburb = req.body.suburb;
+  var postcode = req.body.postcode;
+  var comment = req.body.comment;
+  var date = req.body.date;
+  var active = req.body.active;
+
+  mongoose.model('Customer').create({
+    name : name,
+    address : address,
+    suburb : suburb,
+    postcode : postcode,
+    comment : [{comment, date}],
+    active : active
+  });
 });

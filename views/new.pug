@@ -1,8 +1,29 @@
 html
-	head
-	style
-		include normalize.css
-	title= title
-	body
-		include nav
-		h1= message
+    head
+    style
+        include normalize.css
+    title= title
+    body
+        include nav
+        h1= message
+        form(action='/new',method='post')
+            div
+                label(for="name") Name
+                input(id="name", type="text", name="name")
+            div
+                label(for="address") Address
+                input(type="text" name="address")
+                label(for="suburb") Suburb
+                input(type="text" name="suburb")
+                label(for="postcode") Postcode
+                input(type="text" name="postcode")
+            div
+                label(for="comments") Comments
+                input(type="text" name="comment")
+                label(for="date") Date
+                input(type="date" name="date")
+            div
+                label(for="active") Active
+                input(type="checkbox" name="active" checked)
+            div
+                input(type="submit" value="Add customer")
