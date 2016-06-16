@@ -10,8 +10,6 @@ db.once('open', function() {
   // we're connected!
 });
 
-console.log('Brad was here!');
-
 var customerSchema = mongoose.Schema({
     name: String,
     address: String,
@@ -22,3 +20,21 @@ var customerSchema = mongoose.Schema({
 });
 
 var Customer = mongoose.model('Customer', customerSchema);
+
+app.set('view engine', 'pug');
+
+app.get('/', function (request, response) {
+  response.render('index', {title: 'Index', message: 'Welcome to the world of Adios'});
+});
+
+app.get('/about', function (request, response) {
+  response.render('about', {title: 'About', about: 'A website developed entirely using Pug and Node.js utilising CRUD'});
+});
+
+app.get('/new', function (request, response) {
+  response.render('new', {title: 'New', message: 'Put new form here!'});
+});
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});

@@ -1,0 +1,31 @@
+ul {
+
+  width: 100%;
+  background-color: #FF9999;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  font-family: Arial;
+  list-style-type: none !important;
+  float: left;
+  background-color: #b3e6ff;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #0088cc;
+}
+
+h1 h3 {
+  margin-top: 100px;
+}

@@ -1,0 +1,7 @@
+.nav
+  mixin navs(navs, links)
+    ul.navs(class='navbar')
+        each nav, p in navs
+          -var f = '<a (class="'+nav +'", href="'+ links[p] +'")>'
+            li!= f + nav + '</a>'
+  +navs(['Adios', 'New', 'About', ],['/', '/new', '/about'])
