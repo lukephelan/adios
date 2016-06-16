@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 app.set('view engine', 'pug');
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 mongoose.connect('mongodb://localhost/adios');
@@ -10,12 +11,15 @@ db.once('open', function() {
   // we're connected!
 });
 
-Customer = require('./models/customer');
+require('./models/customer');
+var customer = require('./models/customer');
 
-app.set('view engine', 'pug');
 
 app.get('/', function (request, response) {
-  response.render('index', {title: 'Index', message: 'Welcome to the world of Adios'});
+  mongoose.model('customer').find(function(err, customer){
+    response.send(customer);
+  });
+  // response.render('index', {title: 'Index', message: 'Welcome to the world of Adios'});
 });
 
 app.get('/about', function (request, response) {
