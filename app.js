@@ -3,7 +3,6 @@ var app = express();
 app.set('view engine', 'pug');
 
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 mongoose.connect('mongodb://localhost/adios');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -11,12 +10,10 @@ db.once('open', function() {
   // we're connected!
 });
 
-require('./models/customer');
-var customer = require('./models/customer');
-
+var Customer = require('./models/customer');
 
 app.get('/', function (request, response) {
-  mongoose.model('customer').find(function(err, customer){
+  Customer.find(function(err, customer){
     response.send(customer);
   });
   // response.render('index', {title: 'Index', message: 'Welcome to the world of Adios'});
