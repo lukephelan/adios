@@ -32,6 +32,10 @@ app.get('/new', function (request, response) {
   response.render('new', {title: 'New', message: 'Put new form here!'});
 });
 
+app.get('/edit', function (request, response) {
+  response.render('edit', {title: 'Edit', message: 'Put edit form here!'});
+});
+
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
@@ -48,6 +52,25 @@ app.post('/new', function(req,res){
   var active = req.body.active;
 
   mongoose.model('Customer').create({
+    name : name,
+    address : address,
+    suburb : suburb,
+    postcode : postcode,
+    comment : [{comment, date}],
+    active : active
+  });
+});
+
+app.put('/edit/:id', function(req,res){
+  var name = req.body.name;
+  var address = req.body.address;
+  var suburb = req.body.suburb;
+  var postcode = req.body.postcode;
+  var comment = req.body.comment;
+  var date = req.body.date;
+  var active = req.body.active;
+
+  mongoose.model('Customer').findbyedit({
     name : name,
     address : address,
     suburb : suburb,
