@@ -10,8 +10,7 @@ db.once('open', function() {
   // we're connected!
 });
 
-
-;
+Customer = require('./models/customer');
 
 app.set('view engine', 'pug');
 
