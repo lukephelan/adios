@@ -6,7 +6,23 @@ html
 	body
 		include nav
 		p= message
-
+table(class='table')
+	tr
+		td NAME
+		td ADDRESS
+		td SUBURB
+		td POSTCODE
+		td COMMENTS
 			if customers
 				each customer in customers
-					div #{customer.name}: #{customer.address}, #{customer.suburb}
+					tr(class='row')
+						td #{customer.name},
+						td #{customer.address},
+						td #{customer.suburb},
+						td #{customer.postcode},
+						td #{customer.comments[0].body}
+						td
+							button(class="btn", data-action="edit").
+							Edit
+							button(class="btn", data-action="delete").
+							Delete
