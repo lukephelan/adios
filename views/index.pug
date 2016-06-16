@@ -5,14 +5,8 @@ html
 	title= title
 	body
 		include nav
-		h1= message
+		p= message
 
-    div
-      table
-        thead
-          tr: th Customer
-        tbody
-          each customer, i in customerNames
-            tr(class=(i % 2 == 0) ? 'odd' : 'even')
-              td
-                a(href='/' + customer.name) #{customer.name} - #{customer.address}
+			if customers
+				each customer in customers
+					div #{customer.name}: #{customer.address}, #{customer.suburb}

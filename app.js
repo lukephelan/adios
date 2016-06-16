@@ -13,11 +13,12 @@ db.once('open', function() {
 var Customer = require('./models/customer');
 
 app.get('/', function (request, response) {
-  Customer.find(function(err, customer){
-    response.send(customer);
+  Customer.find({}, function(err, customers){
+    response.render('index', {customers: customers});
   });
-  // response.render('index', {title: 'Index', message: 'Welcome to the world of Adios'});
 });
+
+
 
 app.get('/about', function (request, response) {
   response.render('about', {title: 'About', about: 'A website developed entirely using Pug and Node.js utilising CRUD'});
