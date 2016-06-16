@@ -6,3 +6,13 @@ html
 	body
 		include nav
 		h1= message
+
+    div
+      table
+        thead
+          tr: th Customer
+        tbody
+          each customer, i in customerNames
+            tr(class=(i % 2 == 0) ? 'odd' : 'even')
+              td
+                a(href='/' + customer.name) #{customer.name} - #{customer.address}

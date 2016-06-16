@@ -1,5 +1,8 @@
-ul {
+* {
+  font-family: Arial;
+}
 
+ul {
   width: 100%;
   background-color: #b3e6ff;
   overflow: hidden;
@@ -8,7 +11,6 @@ ul {
 }
 
 li {
-  font-family: Arial;
   list-style-type: none !important;
   float: left;
   background-color: #b3e6ff;
